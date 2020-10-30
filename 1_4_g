@@ -1,0 +1,25 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main()
+{
+	double x[3] = { -0.4,2.4,5 };
+	const int n = 23;
+	double u[n];
+	double a, y;
+	int i, j;
+
+	for (i = 0; i < 3; i++) 
+
+	{
+		u[0] = 1;
+		a = 3.5 * sin(x[i]) * sin(x[i]) - 2.7 * sin(x[i]) + 1;
+			for (j = 1; j <= n ; j++)
+			{
+				u[i] = 2 / 3 * u[i - 1] + a / 3 * u[i - 1] * u[i - 1];
+				y = u[i];
+			}
+			cout << y << endl;
+	}
+
+}
