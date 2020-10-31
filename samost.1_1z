@@ -1,0 +1,32 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main()
+{
+	const int n = 7;
+	int b = -2, j, i;
+	double x[n];
+	double F, Fi = 1;
+	double h = 0.556;
+	double a[3] = { -5,21.4,6 };
+	double sum = 0;
+
+	for (j = 0; j < 3; j++)
+	{
+		for (i = 0; i < n; i++)
+		{
+			x[i] = b + i * h;
+			if (a < 0)
+				F = sin(a[j] + x[i]) * sin(a[j] + x[i]);
+			else
+				F = sin(1 + x[i] * a[j] - x[i] * x[i]);
+			Fi = Fi * F;
+			sum = sum + abs(F);
+		}
+		cout <<"For j = " << j << endl;
+		cout << "Fi = " << Fi<<endl;
+		cout << "Sum = " << sum << endl << endl << endl;
+	}
+	system("pause");
+	return 0;
+}
