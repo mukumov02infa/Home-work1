@@ -1,0 +1,27 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main()
+{
+	double x[3] = { -0.8, 1.2, 3.2 };
+	const int n = 27;
+	double u[n];
+	double a, y;
+	int i, j;
+
+	for (i = 0; i < 3; i++)
+
+	{
+		u[0] = 1;
+		if (x[i] < 0)
+			a = log(x[i] * x[i] + 2.7);
+		else
+			a = log(x[i] + 2.7);
+		for (j = 1; j <= n; j++)
+		{
+			u[i] = 2 / 3 * u[i - 1] + a / 3 * u[i - 1] * u[i - 1];
+			y = u[i];
+		}
+		cout << y << endl;
+	}
+}
